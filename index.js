@@ -55,12 +55,11 @@ const checkingService = class {
                 })
             }
             try{
-                var r = jwt.verify(token,this.params.decodeJWTKey,{ algorithm: 'RS256' });
+                jwt.verify(JWTtoken,this.params.decodeJWTKey,{ algorithm: 'RS256' });
             }catch (err){
-                console.log(err);
                 throw err
             }
-            return jwt.decode(token, {complete: true})
+            return jwt.decode(JWTtoken, {complete: true})
         })
     }
 }
